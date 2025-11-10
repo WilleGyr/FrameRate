@@ -2,7 +2,7 @@
 
 > ⚠️ **Notice**:  
 > This is the README for **version 0.1.0** — the first public pre-release of **FrameRate**.  
-> New features and database improvements are planned. Stay tuned on the [Releases page](https://github.com/willegyr/MovieLogger/releases).
+> New features and database improvements are planned. Stay tuned on the [Releases page](https://github.com/willegyr/FrameRate/releases).
 
 # 🎥 FrameRate
 *Log, rate, and explore your personal movie database.*
