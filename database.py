@@ -236,8 +236,8 @@ def top10_movies():
     return rows
 
 
-def top10_actors():
-    """Top 10 skådisar efter kombinerad karriärrating."""
+def top_actors(min_movies=2, limit=10):
+    """Top actors filtered by minimum number of movies."""
     c = conn()
     cur = c.cursor()
     cur.execute("""
@@ -246,9 +246,12 @@ def top10_actors():
                v.roles_count
         FROM v_actor_combined v
         JOIN actors a ON a.id = v.actor_id
+        WHERE v.roles_count >= ?
         ORDER BY v.actor_career_rating DESC, v.roles_count DESC, a.name
-        LIMIT 10
-    """)
+        LIMIT ?
+    """, (min_movies, limit))
     rows = cur.fetchall()
     c.close()
     return rows
+
+

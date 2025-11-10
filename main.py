@@ -2,7 +2,7 @@ from database import (
     init_db, add_movie, add_actor_to_movie,
     search_movies, get_movie_details,
     search_actors, get_actor_details,
-    top10_movies, top10_actors
+    top10_movies, top_actors
 )
 
 def log_movie():
@@ -117,7 +117,7 @@ def print_actor_details(summary, roles):
     else:
         for mid, title, year, role, ar in roles:
             role_txt = f" som {role}" if role else ""
-            print(f"  {title} ({year}){role_txt} — prestation: {ar} [movie_id={mid}]")
+            print(f"  {title} ({year}){role_txt} — prestation: {ar} [{mid}]")
 
 
 def show_top10_movies():
@@ -130,7 +130,7 @@ def show_top10_movies():
         print(f"{i:>2}. [{mid}] {title} ({year})  combined={combined}  overall={overall}")
 
 def show_top10_actors():
-    rows = top10_actors()
+    rows = top_actors(min_movies=2)
     if not rows:
         print("\nInga skådisar ännu.")
         return
